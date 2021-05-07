@@ -3,6 +3,7 @@ import Header from '../template/Header';
 
 import { apiUrl } from '../services/apirest';
 import axios from 'axios';
+import Moment from 'moment';
 
 class Dashboard extends React.Component{
     state={
@@ -81,9 +82,9 @@ class Dashboard extends React.Component{
                                 <tr key={index}>
                                     <th>{value.bookingId}</th>
                                     <th>{value.firstName} {value.lastName}</th>
-                                    <th>{value.bookingTime}</th>
+                                    <th>{Moment(value.bookingTime).format('d MMM Y')}</th>
                                     <th>{value.streetAddress}</th>
-                                    <th>{value.bookingPrice}</th>
+                                    <th>${value.bookingPrice}</th>
                                 </tr>
                             )
                         })}
